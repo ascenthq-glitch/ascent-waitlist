@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Grads — Ascent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --teal: #1a8c6a;
+    --teal-bright: #22c98a;
+    --off-white: #f0ede8;
+    --muted: rgba(240,237,232,0.5);
+    --bg: #080c0b;
+  }
+  html, body {
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--off-white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+  body {
+    background:
+      radial-gradient(ellipse 70% 60% at -10% 110%, rgba(13,92,71,0.75) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 105% 95%, rgba(13,92,71,0.5) 0%, transparent 60%),
+      var(--bg);
+    min-height: 100vh;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 48px;
+    position: relative;
+    z-index: 10;
+  }
+  .nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--off-white);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--off-white); }
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 80px 24px 120px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal-bright);
+    margin-bottom: 24px;
+    opacity: 0.85;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--off-white);
+    margin-bottom: 20px;
+  }
+  .intro {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    max-width: 560px;
+  }
+  .intro-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 56px;
+    max-width: 560px;
+  }
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 64px;
+  }
+  .benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 0.5px solid rgba(240,237,232,0.06);
+  }
+  .benefit:first-child { border-top: 0.5px solid rgba(240,237,232,0.06); }
+  .benefit-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal-bright);
+    flex-shrink: 0;
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+  .benefit-text {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--off-white);
+    line-height: 1.6;
+  }
+  .who-card {
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid rgba(240,237,232,0.1);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 64px;
+  }
+  .who-label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-bright);
+    opacity: 0.7;
+    margin-bottom: 10px;
+  }
+  .who-text {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .cta-bar {
+    padding-top: 48px;
+    border-top: 0.5px solid rgba(240,237,232,0.08);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .cta-text {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--muted);
+  }
+  .cta-btn {
+    background: var(--off-white);
+    color: var(--bg);
+    border: none;
+    padding: 11px 28px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .cta-btn:hover { background: #dddad5; transform: scale(1.02); }
+  @media (max-width: 640px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .page { padding: 60px 20px 80px; }
+    .cta-bar { flex-direction: column; align-items: flex-start; }
+    .who-card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="index.html">Ascent</a>
+  <ul class="nav-links nav-center">
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="for-founders.html">For Founders</a></li>
+    <li><a href="for-grads.html" class="active">For Grads</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <p class="eyebrow">For Grads</p>
+  <h1>Your work should matter from day one.</h1>
+  <p class="intro">You graduated. You're ambitious. You don't want a corporate job where you're employee number 3,000.</p>
+  <p class="intro-sub">You want to actually build something, work directly with a founder, and have your work matter from day one. Ascent finds you a startup worth joining, and makes sure they're worth your time before the introduction is ever made.</p>
+
+  <div class="benefits">
+    <div class="benefit">
+      <div class="benefit-dot"></div>
+      <p class="benefit-text">Curated roles, no cold applying.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-dot"></div>
+      <p class="benefit-text">Startups that are serious about hiring.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-dot"></div>
+      <p class="benefit-text">A team that has your back through the process.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-dot"></div>
+      <p class="benefit-text">Launching July 2026, get in early.</p>
+    </div>
+  </div>
+
+  <div class="who-card">
+    <p class="who-label">Who it's for</p>
+    <p class="who-text">Final year students and recent graduates ready to join an early-stage startup.</p>
+  </div>
+
+  <div class="cta-bar">
+    <p class="cta-text">Get in before we launch.</p>
+    <a href="index.html" class="cta-btn">Get Early Access</a>
+  </div>
+</div>
+</body>
+</html>
