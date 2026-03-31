@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ascent </title>
+<title>Ascent — Where Grads Meet Startups</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -334,6 +334,13 @@
     z-index: 1;
   }
 
+  .beehiiv-wrap {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   /* SUCCESS STATE */
   .success-msg {
     display: none;
@@ -379,16 +386,12 @@
   <span class="headline-italic">One Hire at a Time</span>
 
   <p class="subtext">
-    India's first curated hiring platform connecting top graduates with early-stage startups that actually want them. <br> No spam. No cold applications. Just the right match.
+    India's first curated hiring platform connecting top graduates with early-stage startups that actually want them.<br>No spam. No cold applications. Just the right match.
   </p>
 
-  <div class="form-wrap" id="formWrap">
-    <input type="email" id="emailInput" placeholder="Enter your email address" autocomplete="email" />
-    <button class="form-cta" onclick="handleSignup()">Get Early Access</button>
-  </div>
-
-  <div class="success-msg" id="successMsg">
-    ✦ &nbsp; You're on the list. We'll be in touch soon.
+  <div class="beehiiv-wrap">
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+    <iframe src="https://subscribe-forms.beehiiv.com/1e48482d-3af3-4ac0-9a4f-80676e85eb96" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 316px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
   </div>
 
   <p class="form-note">No spam. Unsubscribe anytime. Launching July 2026.</p>
