@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   :root {
     --teal: #1a8c6a;
     --teal-bright: #22c98a;
@@ -17,7 +17,7 @@
     --muted: rgba(240,237,232,0.5);
     --bg: #080c0b;
   }
-
+ 
   html, body {
     min-height: 100%;
     background: var(--bg);
@@ -25,7 +25,7 @@
     font-family: 'DM Sans', sans-serif;
     overflow-x: hidden;
   }
-
+ 
   body {
     background:
       radial-gradient(ellipse 70% 60% at -10% 110%, rgba(13,92,71,0.75) 0%, transparent 65%),
@@ -34,7 +34,7 @@
       var(--bg);
     min-height: 100vh;
   }
-
+ 
   /* NAV */
   nav {
     display: flex;
@@ -44,13 +44,13 @@
     position: relative;
     z-index: 10;
   }
-
+ 
   .nav-center {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
-
+ 
   .logo {
     font-family: 'DM Serif Display', serif;
     font-size: 22px;
@@ -58,13 +58,13 @@
     color: var(--off-white);
     text-decoration: none;
   }
-
+ 
   .nav-links {
     display: flex;
     gap: 36px;
     list-style: none;
   }
-
+ 
   .nav-links a {
     font-size: 14px;
     font-weight: 300;
@@ -73,9 +73,9 @@
     letter-spacing: 0.02em;
     transition: color 0.2s;
   }
-
+ 
   .nav-links a:hover { color: var(--off-white); }
-
+ 
   .nav-cta {
     background: var(--off-white);
     color: var(--bg);
@@ -90,12 +90,12 @@
     text-decoration: none;
     display: inline-block;
   }
-
+ 
   .nav-cta:hover {
     background: #e0ddd8;
     transform: scale(1.02);
   }
-
+ 
   /* HERO */
   .hero {
     display: flex;
@@ -106,9 +106,9 @@
     position: relative;
     z-index: 5;
   }
-
+ 
   .eyebrow {
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -116,7 +116,7 @@
     margin-bottom: 28px;
     opacity: 0.85;
   }
-
+ 
   h1 {
     font-family: 'DM Serif Display', serif;
     font-size: clamp(52px, 8vw, 98px);
@@ -126,7 +126,7 @@
     color: var(--off-white);
     margin-bottom: 0;
   }
-
+ 
   .headline-italic {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -138,7 +138,7 @@
     margin-top: 4px;
     margin-bottom: 36px;
   }
-
+ 
   .subtext {
     font-size: 16px;
     font-weight: 300;
@@ -148,7 +148,7 @@
     margin: 0 auto 44px;
     letter-spacing: 0.01em;
   }
-
+ 
   /* EMAIL FORM */
   .form-wrap {
     display: flex;
@@ -161,12 +161,14 @@
     width: 100%;
     backdrop-filter: blur(10px);
     transition: border-color 0.2s;
+    position: relative;
+    z-index: 10;
   }
-
+ 
   .form-wrap:focus-within {
     border-color: rgba(34,201,138,0.4);
   }
-
+ 
   .form-wrap input {
     background: transparent;
     border: none;
@@ -178,11 +180,11 @@
     color: var(--off-white);
     letter-spacing: 0.01em;
   }
-
+ 
   .form-wrap input::placeholder {
     color: rgba(240,237,232,0.35);
   }
-
+ 
   .form-cta {
     background: var(--off-white);
     color: var(--bg);
@@ -197,12 +199,12 @@
     transition: background 0.2s, transform 0.15s;
     flex-shrink: 0;
   }
-
+ 
   .form-cta:hover {
     background: #dddad5;
     transform: scale(1.02);
   }
-
+ 
   .form-note {
     margin-top: 14px;
     font-size: 12px;
@@ -210,14 +212,14 @@
     font-weight: 300;
     letter-spacing: 0.02em;
   }
-
+ 
   /* SOCIAL ICONS */
   .socials {
     display: flex;
     gap: 12px;
     margin-top: 48px;
   }
-
+ 
   .social-btn {
     width: 44px;
     height: 44px;
@@ -231,26 +233,107 @@
     transition: border-color 0.2s, background 0.2s;
     text-decoration: none;
   }
-
+ 
   .social-btn:hover {
     border-color: rgba(34,201,138,0.4);
     background: rgba(34,201,138,0.06);
   }
-
+ 
   .social-btn svg {
     width: 16px;
     height: 16px;
     fill: rgba(240,237,232,0.55);
   }
-
-  
+ 
+  /* BOTTOM PREVIEW / PHONE MOCKUP */
+  .mockup-zone {
+    position: relative;
+    max-width: 700px;
+    margin: 80px auto 0;
+    height: 220px;
+    overflow: hidden;
+    z-index: 1;
+  }
+ 
+  .mockup-card {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(240,237,232,0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow: hidden;
+    top: 0;
+  }
+ 
+  .mockup-header {
+    background: rgba(255,255,255,0.05);
+    border-bottom: 0.5px solid rgba(240,237,232,0.08);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+ 
+  .mockup-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(240,237,232,0.15);
+  }
+ 
+  .mockup-title {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(240,237,232,0.35);
+    letter-spacing: 0.05em;
+  }
+ 
+  .mockup-body {
+    padding: 20px 18px;
+  }
+ 
+  .mockup-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 0.5px solid rgba(240,237,232,0.06);
+  }
+ 
+  .mockup-row:last-child { border-bottom: none; }
+ 
+  .mockup-label {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(240,237,232,0.4);
+  }
+ 
+  .mockup-val {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(240,237,232,0.75);
+  }
+ 
+  .pill {
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: rgba(34,201,138,0.12);
+    color: var(--teal-bright);
+    font-weight: 400;
+  }
+ 
   /* FLOATING ACCENT LINES */
   .accent-line {
     position: fixed;
     pointer-events: none;
     z-index: 1;
   }
-
+ 
   /* SUCCESS STATE */
   .success-msg {
     display: none;
@@ -266,7 +349,7 @@
     max-width: 480px;
     width: 100%;
   }
-
+ 
   /* RESPONSIVE */
   @media (max-width: 640px) {
     nav { padding: 20px 24px; }
@@ -279,7 +362,7 @@
 </style>
 </head>
 <body>
-
+ 
 <nav>
   <a class="logo" href="#">Ascent</a>
   <ul class="nav-links nav-center">
@@ -288,31 +371,30 @@
     <li><a href="for-grads.html">For Grads</a></li>
   </ul>
 </nav>
-
+ 
 <section class="hero" id="waitlist">
   <p class="eyebrow">Launching in July 2026</p>
-
+ 
   <h1>Where Ambition<br>Meets Opportunity</h1>
   <span class="headline-italic">One Hire at a Time</span>
-
+ 
   <p class="subtext">
     India's first curated hiring platform connecting top graduates with early-stage startups that actually want them. No spam. No cold applications. Just the right match.
   </p>
-
+ 
   <div class="form-wrap" id="formWrap">
     <input type="email" id="emailInput" placeholder="Enter your email address" autocomplete="email" />
     <button class="form-cta" onclick="handleSignup()">Get Early Access</button>
   </div>
-
+ 
   <div class="success-msg" id="successMsg">
     ✦ &nbsp; You're on the list. We'll be in touch soon.
   </div>
-
+ 
   <p class="form-note">No spam. Unsubscribe anytime. Launching July 2026.</p>
-
-
+ 
 </section>
-
+ 
 <script>
   function handleSignup() {
     const input = document.getElementById('emailInput');
@@ -327,9 +409,25 @@
       }, 2000);
       return;
     }
-    window.location.href = 'https://acentai.beehiiv.com/?modal=signup&email=' + encodeURIComponent(email);
+    const btn = document.querySelector('.form-cta');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+ 
+    fetch('https://api.beehiiv.com/v2/publications/pub_46677e34-c374-4a55-9d6d-27ceeb348156/subscriptions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, reactivate_existing: false, send_welcome_email: true })
+    })
+    .then(res => {
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    })
+    .catch(() => {
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    });
   }
-
+ 
   document.getElementById('emailInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') handleSignup();
   });
