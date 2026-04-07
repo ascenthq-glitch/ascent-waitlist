@@ -108,12 +108,12 @@
   }
 
   .eyebrow {
-    font-size: 22px;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--teal-bright);
-    margin-bottom: 12px;
+    margin-bottom: 28px;
     opacity: 0.85;
   }
 
@@ -335,10 +335,52 @@
   }
 
   .beehiiv-wrap {
-    margin-top: -180px;
+    margin-top: 8px;
     display: flex;
     justify-content: center;
     width: 100%;
+  }
+
+  .split-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .split-label {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .split-btns {
+    display: flex;
+    gap: 12px;
+  }
+
+  .split-btn {
+    background: transparent;
+    color: var(--off-white);
+    border: 0.5px solid rgba(240,237,232,0.25);
+    padding: 12px 36px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .split-btn:hover, .split-btn.active {
+    background: var(--off-white);
+    color: var(--bg);
+    border-color: var(--off-white);
   }
 
   /* SUCCESS STATE */
@@ -392,9 +434,21 @@
     India's first curated hiring platform connecting top graduates with early-stage startups that actually want them.<br>No spam. No cold applications. Just the right match.
   </p>
 
-  <div class="beehiiv-wrap">
-    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-    <iframe src="https://subscribe-forms.beehiiv.com/1e48482d-3af3-4ac0-9a4f-80676e85eb96" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 500px; height: 343px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+  <div class="split-wrap">
+    <p class="split-label">I am a</p>
+    <div class="split-btns">
+      <button class="split-btn" onclick="showForm('grad')">Grad</button>
+      <button class="split-btn" onclick="showForm('founder')">Founder</button>
+    </div>
+
+    <div class="form-wrap" id="formWrap" style="display:none;">
+      <input type="email" id="emailInput" placeholder="Enter your email address" autocomplete="email" />
+      <button class="form-cta" id="submitBtn" onclick="handleSignup()">Get Early Access</button>
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      ✦ &nbsp; You're on the list. We'll be in touch soon.
+    </div>
   </div>
 
   <p class="form-note">No spam. Unsubscribe anytime. Launching July 2026.</p>
@@ -402,6 +456,18 @@
 </section>
 
 <script>
+  var userType = '';
+  var gradForm = 'https://docs.google.com/forms/d/1d9zMUx8UYprOcHqPNkEKm18muZupsoGF_T0QwzXrWsE/viewform';
+  var founderForm = 'https://docs.google.com/forms/d/e/1FAIpQLSc-RYOSGgJpDo7N336ihhVQ0p5UbOOx7m_dNGjhpMh1EdQfLA/viewform';
+
+  function showForm(type) {
+    userType = type;
+    document.querySelectorAll('.split-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('formWrap').style.display = 'flex';
+    document.getElementById('emailInput').focus();
+  }
+
   function handleSignup() {
     const input = document.getElementById('emailInput');
     const email = input.value.trim();
@@ -416,9 +482,20 @@
       return;
     }
     document.getElementById('formWrap').style.display = 'none';
+    document.querySelector('.split-btns').style.display = 'none';
+    document.querySelector('.split-label').style.display = 'none';
     document.getElementById('successMsg').style.display = 'block';
 
-    window.open('https://docs.google.com/forms/d/1d9zMUx8UYprOcHqPNkEKm18muZupsoGF_T0QwzXrWsE/viewform', '_blank');
+    const formLink = userType === 'grad' ? gradForm : founderForm;
+    window.open(formLink, '_blank');
+
+    const pixel = new Image();
+    pixel.src = 'https://magic.beehiiv.com/v1/46677e34-c374-4a55-9d6d-27ceeb348156?email=' + encodeURIComponent(email);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handleSignup();
+  });
   }
 
   document.getElementById('emailInput').addEventListener('keydown', function(e) {
