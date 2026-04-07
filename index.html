@@ -437,8 +437,8 @@
   <div class="split-wrap">
     <p class="split-label">I am a</p>
     <div class="split-btns">
-      <button class="split-btn" onclick="showForm('grad')">Grad</button>
-      <button class="split-btn" onclick="showForm('founder')">Founder</button>
+      <button class="split-btn" onclick="showForm('grad', this)">Grad</button>
+<button class="split-btn" onclick="showForm('founder', this)">Founder</button>
     </div>
 
     <div class="form-wrap" id="formWrap" style="display:none;">
@@ -460,10 +460,10 @@
   var gradForm = 'https://docs.google.com/forms/d/1d9zMUx8UYprOcHqPNkEKm18muZupsoGF_T0QwzXrWsE/viewform';
   var founderForm = 'https://docs.google.com/forms/d/e/1FAIpQLSc-RYOSGgJpDo7N336ihhVQ0p5UbOOx7m_dNGjhpMh1EdQfLA/viewform';
 
-  function showForm(type) {
+ function showForm(type, el) {
     userType = type;
     document.querySelectorAll('.split-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    el.classList.add('active');
     document.getElementById('formWrap').style.display = 'flex';
     document.getElementById('emailInput').focus();
   }
