@@ -68,13 +68,41 @@ When given a list of Twitter/X profiles from a CSV export, you build TWO pipelin
 ---
 
 ## Output Format
-Return TWO clearly labelled sections:
+Return TWO clearly labelled tables in the terminal, then ALWAYS auto-save two CSV files.
 
 ### FOUNDER LEADS
-| Name | Username | Bio | Location | Followers | India | Hiring | Score |
+| Name | Username | Bio | Location | Followers | India | Hiring | Score | Profile URL |
 
 ### CANDIDATE LEADS
-| Name | Username | Bio | Location | Skills | Experience Level | Score |
+| Name | Username | Bio | Location | Skills | Experience Level | Score | Profile URL |
+
+---
+
+## Auto-Save CSV Files
+After displaying the tables, ALWAYS save two CSV files automatically using Python:
+
+```python
+import csv
+from datetime import datetime
+
+date = datetime.now().strftime("%Y-%m-%d")
+
+# Save founder_leads.csv
+with open(f"founder_leads_{date}.csv", "w", newline="", encoding="utf-8") as f:
+    writer = csv.DictWriter(f, fieldnames=["Name","Username","Bio","Location","Followers","India","Hiring","Score","Profile URL"])
+    writer.writeheader()
+    writer.writerows(founder_leads)
+
+# Save candidate_leads.csv  
+with open(f"candidate_leads_{date}.csv", "w", newline="", encoding="utf-8") as f:
+    writer = csv.DictWriter(f, fieldnames=["Name","Username","Bio","Location","Skills","Experience Level","Score","Profile URL"])
+    writer.writeheader()
+    writer.writerows(candidate_leads)
+
+print(f"✅ Saved founder_leads_{date}.csv — {len(founder_leads)} founders")
+print(f"✅ Saved candidate_leads_{date}.csv — {len(candidate_leads)} candidates")
+print("📊 Import these into Google Sheets: File → Import → Upload")
+```
 
 ---
 
@@ -83,7 +111,9 @@ Return TWO clearly labelled sections:
 - A profile can appear in BOTH lists (e.g. a student who is also building)
 - If bio is empty, skip entirely
 - Prioritize quality over quantity
-- Always include profile URL for outreach
+- Always include Profile URL for outreach
+- ALWAYS save both CSV files automatically — never skip this step
+- Name files with today's date so they don't overwrite each other
 
 ---
 
